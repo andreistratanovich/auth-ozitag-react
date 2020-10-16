@@ -1,0 +1,18 @@
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 24px;
+
+  &__username {
+    margin-top: 20px;
+  }
+
+  &__email {
+    margin-bottom: 24px;
+    color: #8c8c8c;
+  }
+}

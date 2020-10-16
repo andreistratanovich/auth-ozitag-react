@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import "./App.scss";
+
+import Logo from "./components/Logo/Logo";
+import Auth from "./pages/Auth/Auth";
+import Profile from "./pages/Profile/Profile";
+
+export default () => {
+  const [user, setUser] = useState(localStorage.getItem("user") || null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {user ? (
+        <Profile user={user} setUser={setUser} />
+      ) : (
+        <React.Fragment>
+          <Logo />
+          <Auth setUser={setUser} />
+        </React.Fragment>
+      )}
     </div>
   );
-}
-
-export default App;
+};
